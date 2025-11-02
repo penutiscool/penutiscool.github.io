@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>Penuts - Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="background-canvas"></canvas>
+    <nav class="topbar">
+            <div class="title" id="site-title"> <h3>Penuts Arcade </h3> </div>
+        <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"> </i></a></li>
+            <li><a href="games.html"><i class="fa-solid fa-gamepad"></i></a></li>
+            <li><a href="links.html"><i class="fa-solid fa-link"></i></a></li>
+            <li><a href="links.html"><i class="fa-solid fa-link"></i></a></li>
+            <li><a href="credits.html">Credits</a></li>
+        </ul>
+    </nav>
+    <div class="content games-page">
+        <div class="game-browser">
+            <h1 class="page-title">Game Browser</h1>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search games...">
+                <button class="search-button" id="search-btn">🔍</button>
+            </div>
+
+            <!-- Menu/Categories -->
+            <div class="menu-container">
+                <button class="menu-btn active" data-category="all">All Games</button>
+                <button class="menu-btn" data-category="action">Action</button>
+                <button class="menu-btn" data-category="puzzle">Puzzle</button>
+                <button class="menu-btn" data-category="arcade">Arcade</button>
+                <button class="menu-btn" data-category="strategy">Strategy</button>
+                <button class="menu-btn" data-category="adventure">Adventure</button>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="games-grid" id="games-grid">
+                <!-- Games will be dynamically loaded here -->
+            </div>
+
+            <!-- Game Viewer (Iframe) -->
+            <div class="game-viewer" id="game-viewer" style="display: none;">
+                <div class="game-viewer-header">
+                    <h2 id="viewer-title"></h2>
+                    <button class="close-button" id="close-viewer">✕</button>
+                </div>
+                <div class="iframe-loading-overlay" id="iframe-loading">
+                    <div class="loading-spinner"></div>
+                    <div class="iframe-loading-text">Loading game...</div>
+                </div>
+                <iframe id="game-iframe" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
