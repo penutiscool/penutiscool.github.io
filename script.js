@@ -34,7 +34,7 @@ if (canvas) {
         circles.forEach(circle => {
             ctx.beginPath();
             ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(9, 255, 0, ${circle.opacity})`; // Purple color
+            ctx.fillStyle = `rgba(9, 255, 0, ${circle.opacity})`; // Green color
             ctx.fill();
         });
     }
@@ -96,7 +96,8 @@ if (siteTitle) {
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <title>Penuts Arcade</title>
+                    <link rel="icon" type="image/x-icon" href="https://login.classlink.com/favicon.ico">
+                    <title>Login</title>
                     <style>
                         body, html {
                             margin: 0;
@@ -156,3 +157,211 @@ async function getWeather() {
 
 getWeather();
 setInterval(getWeather, 600000); // update every 10 minutes
+
+// Page loading spinner for navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Random loading messages
+    const loadingMessages = [
+        "Loading...",
+        "Preparing the arcade...",
+        "Gathering games...",
+        "Almost there...",
+        "Setting up fun...",
+        "Loading awesome content...",
+        "Getting ready...",
+        "Preparing your experience...",
+        "Just a moment...",
+        "Loading magic...",
+        "Almost ready...",
+        "Hang tight...",
+        "Building the fun...",
+        "Preparing games...",
+        "Loading content...",
+        "Setting things up..."
+    ];
+    
+    let messageInterval = null;
+    let currentMessageIndex = 0;
+    let overlayShowTime = null;
+    let pageLoaded = false;
+    let hideTimeout = null;
+    
+    // Create page loading overlay if it doesn't exist
+    let pageLoadingOverlay = document.getElementById('page-loading-overlay');
+    let pageLoadingText = null;
+    
+    function createLoadingOverlay() {
+        if (!pageLoadingOverlay) {
+            pageLoadingOverlay = document.createElement('div');
+            pageLoadingOverlay.id = 'page-loading-overlay';
+            pageLoadingOverlay.className = 'page-loading-overlay';
+            pageLoadingOverlay.innerHTML = `
+                <div class="page-loading-content">
+                    <div class="loading-spinner"></div>
+                    <div class="page-loading-text">${loadingMessages[0]}</div>
+                </div>
+            `;
+            document.body.appendChild(pageLoadingOverlay);
+        }
+        // Always get the text element reference (in case overlay already existed)
+        pageLoadingText = pageLoadingOverlay.querySelector('.page-loading-text');
+    }
+    
+    function startMessageCycle() {
+        // Clear any existing interval
+        if (messageInterval) {
+            clearInterval(messageInterval);
+        }
+        
+        // Pick a random starting message
+        currentMessageIndex = Math.floor(Math.random() * loadingMessages.length);
+        if (pageLoadingText) {
+            pageLoadingText.textContent = loadingMessages[currentMessageIndex];
+        }
+        
+        // Cycle through messages every 3 seconds
+        messageInterval = setInterval(() => {
+            if (pageLoadingOverlay && pageLoadingOverlay.classList.contains('show') && pageLoadingText) {
+                // Pick a random different message
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * loadingMessages.length);
+                } while (newIndex === currentMessageIndex && loadingMessages.length > 1);
+                
+                currentMessageIndex = newIndex;
+                pageLoadingText.style.opacity = '0';
+                
+                setTimeout(() => {
+                    pageLoadingText.textContent = loadingMessages[currentMessageIndex];
+                    pageLoadingText.style.opacity = '1';
+                }, 150);
+            }
+        }, 3000);
+    }
+    
+    function stopMessageCycle() {
+        if (messageInterval) {
+            clearInterval(messageInterval);
+            messageInterval = null;
+        }
+    }
+    
+    function hideLoadingOverlay() {
+        if (!pageLoadingOverlay || !pageLoadingOverlay.classList.contains('show')) {
+            return;
+        }
+        
+        const now = Date.now();
+        const minDisplayTime = 2000; // 2 seconds
+        
+        if (!overlayShowTime) {
+            // Overlay was shown but time wasn't tracked (shouldn't happen normally)
+            overlayShowTime = now;
+        }
+        
+        const timeShown = now - overlayShowTime;
+        
+        if (timeShown >= minDisplayTime) {
+            // Minimum time has passed, hide immediately
+            pageLoadingOverlay.classList.remove('show');
+            stopMessageCycle();
+            overlayShowTime = null;
+            pageLoaded = false;
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+        } else {
+            // Minimum time hasn't passed yet, wait for the remaining time
+            const remainingTime = minDisplayTime - timeShown;
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+            }
+            hideTimeout = setTimeout(() => {
+                if (pageLoadingOverlay && pageLoadingOverlay.classList.contains('show')) {
+                    pageLoadingOverlay.classList.remove('show');
+                    stopMessageCycle();
+                }
+                overlayShowTime = null;
+                pageLoaded = false;
+                hideTimeout = null;
+            }, remainingTime);
+        }
+    }
+    
+    createLoadingOverlay();
+
+    // Check if overlay should be shown (from previous page navigation)
+    let fromNavigation = false;
+    if (typeof Storage !== 'undefined') {
+        const storedShowTime = sessionStorage.getItem('overlayShowTime');
+        if (storedShowTime) {
+            overlayShowTime = parseInt(storedShowTime, 10);
+            pageLoadingOverlay.classList.add('show');
+            startMessageCycle();
+            sessionStorage.removeItem('overlayShowTime'); // Remove after reading
+            fromNavigation = true;
+        }
+    }
+    
+    // Show loading overlay on initial page load (if not from navigation)
+    if (!fromNavigation) {
+        const showTime = Date.now();
+        overlayShowTime = showTime;
+        pageLoadingOverlay.classList.add('show');
+        startMessageCycle();
+    }
+
+    // Intercept all navigation link clicks
+    const navLinks = document.querySelectorAll('.topbar a[href], .content a[href]');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Only intercept internal links (same domain)
+        if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('//')) {
+            link.addEventListener('click', (e) => {
+                // Don't intercept if it's an external link or special link
+                if (href.startsWith('mailto:') || href.startsWith('tel:')) {
+                    return;
+                }
+                
+                // Show loading overlay
+                const showTime = Date.now();
+                overlayShowTime = showTime;
+                pageLoaded = false;
+                
+                // Store in sessionStorage so it persists across page navigation
+                if (typeof Storage !== 'undefined') {
+                    sessionStorage.setItem('overlayShowTime', showTime.toString());
+                }
+                
+                pageLoadingOverlay.classList.add('show');
+                startMessageCycle();
+                
+                // Set minimum display timer (2 seconds)
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                }
+                
+                // Let the default navigation happen
+                // The overlay will remain visible until the new page loads
+            });
+        }
+    });
+    
+    // Hide loading overlay when page is fully loaded
+    window.addEventListener('load', () => {
+        pageLoaded = true;
+        hideLoadingOverlay();
+    });
+    
+    // Also handle if page is already loaded
+    if (document.readyState === 'complete') {
+        pageLoaded = true;
+        // If overlay is shown, ensure it stays for minimum 2 seconds
+        if (pageLoadingOverlay && pageLoadingOverlay.classList.contains('show')) {
+            hideLoadingOverlay();
+        }
+    }
+});

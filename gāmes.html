@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <title>Penuts - Games</title>
+    <link rel="icon" type="image/x-icon" href="https://login.classlink.com/favicon.ico">
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
             
             <!-- Search Bar -->
             <div class="search-container" style="position: relative;">
-                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: rgb(204, 0, 255); z-index: 2; pointer-events: none;"></i>
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: rgb(9, 255, 0); z-index: 2; pointer-events: none;"></i>
                 <input type="text" id="search-input" class="search-input" placeholder="Search games..." style="padding-left: 50px;">
             </div>
 
@@ -50,6 +50,8 @@
                 <div class="game-viewer-header">
                     <h2 id="viewer-title"></h2>
                     <button class="close-button" id="close-viewer">✕</button>
+                    <button id="refresh-button"><i class="fa-solid fa-rotate-right"></i></button>
+                    <button id="full-screen-button"><i class="fa-solid fa-expand"></i></button>
                 </div>
                 <div class="iframe-loading-overlay" id="iframe-loading">
                     <div class="loading-spinner"></div>
