@@ -22,19 +22,19 @@ const gamesRaw = [
         id: 1,
         name: "Snake Game",
         imageUrl: "https://hubbleedu.github.io/images/Google-Snake.png",
-        gameUrl: "https://hubbleedu.github.io/games/snake/"
+        gameUrl: "https://hubbleedu.github.io/games/google-snake/"
     },
     {
         id: 2,
         name: "Tetris",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Tetris",
-        gameUrl: "https://tetris.com/play-tetris"
+        imageUrl: "https:/hubbleedu.github.io/images/Tetris.png",
+        gameUrl: "https:/hubbleedu.github.io/games/Tetris.html"
     },
     {
         id: 3,
-        name: "Pac-Man",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Pac-Man",
-        gameUrl: "https://www.pacman.com/en/pac-man/"
+        name: "Szvy",
+        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=      -Man",
+        gameUrl: "https://zearn.global.ssl.fastly.net"
     },
     {
         id: 4,
@@ -103,7 +103,6 @@ let filteredGames = [...games];
 
 const gamesGrid = document.getElementById('games-grid');
 const searchInput = document.getElementById('search-input');
-const searchBtn = document.getElementById('search-btn');
 const menuBtns = document.querySelectorAll('.menu-btn');
 const gameViewer = document.getElementById('game-viewer');
 const gameIframe = document.getElementById('game-iframe');
@@ -280,7 +279,6 @@ menuBtns.forEach(btn => {
 });
 
 searchInput.addEventListener('input', applyFilters);
-searchBtn.addEventListener('click', applyFilters);
 
 // Allow Enter key to search
 searchInput.addEventListener('keypress', (e) => {

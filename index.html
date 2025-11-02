@@ -10,26 +10,30 @@
     <body>
         <canvas id="background-canvas"></canvas>
         <nav class="topbar">
-            <div class="title" id="site-title"> <h3>Penuts Arcade </h3> </div>
+            <div class="title" id="site-title">
+                <h3>Penut's Arcade</h3>
+            </div>
             <ul>
-                <li><a href="index.html"><i class="fa-solid fa-house"> </i></a></li>
-                <li><a href="games.html"><i class="fa-solid fa-gamepad"></i></a></li>
-                <li><a href="links.html"><i class="fa-solid fa-link"></i></a></li>
-                <li><a href="credits.html">Credits</a></li>
+                <li><a href="index.html"><i class="fa-solid fa-house"> </i></a><span class="tooltip">Home</span></li>
+                <li><a href="Gāmes.html"><i class="fa-solid fa-gamepad"></i></a><span class="tooltip">Games</span></li>
+                <li><a href="links.html"><i class="fa-solid fa-link"></i></a><span class="tooltip">Links</span></li>
+                <li><a href="partners.html"><i class="fa-solid fa-handshake"></i></a><span class="tooltip">Partners</span></li>
+                <li><a href="credits.html"><i class="fa-solid fa-trophy"></i></a><span class="tooltip">Credits</span></li>
             </ul>
         </nav>
         <div class="content">
-            <h1 class="page-title">Welcome to Penuts Gaming!</h1>
-            
-            <!-- Search Bar -->
+            <h1 class="page-title">Welcome to Penut's Arcade!</h1>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 10px;">
+        <h2 style="color: rgb(9, 255, 0); margin: 0;">Check it out! We have</h2><div id="sfc6ku9n554g8w4qhba6n4z7zk8be2pfafp"></div><script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=6ku9n554g8w4qhba6n4z7zk8be2pfafp&down=async" async></script><a href="https://www.freecounterstat.com"></a>            <noscript>                <a href="https://www.freecounterstat.com" title="page counter">             <img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=6ku9n554g8w4qhba6n4z7zk8be2pfafp" border="0" title="page counter" alt="page counter">            </a>          </noscript>            <h2 style="color: rgb(9, 255, 0);; margin: 0;">visits</h2>     </div>
+
             <div class="search-container" style="max-width: 800px; margin: 30px auto; position: relative;">
-                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: rgb(204, 0, 255); z-index: 2; pointer-events: none;"></i>
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: rgb(9, 255, 0); ; z-index: 2; pointer-events: none;"></i>
                 <input type="text" id="home-search-input" class="search-input" placeholder="Search games..." style="padding-left: 50px;">
             </div>
-            
-            <!-- Search Results -->
+
+       
             <div id="search-results" style="display: none;">
-                <h2 style="color: rgb(204, 0, 255); text-align: center; margin-bottom: 30px;">Search Results</h2>
+                <h2 style="color: rgb(9, 255, 0);; text-align: center; margin-bottom: 30px;">Search Results</h2>
                 <div class="games-grid" id="home-games-grid"></div>
                 <div style="text-align: center; margin-top: 30px;">
                     <a href="games.html" class="game-button" style="display: inline-block; text-decoration: none;">View All Games</a>

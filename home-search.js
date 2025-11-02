@@ -30,9 +30,9 @@ const gamesRaw = [
     },
     {
         id: 3,
-        name: "Pac-Man",
+        name: "Szvy",
         imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Pac-Man",
-        gameUrl: "https://www.pacman.com/en/pac-man/"
+        gameUrl: "https://zearn.global.ssl.fastly.net"
     },
     {
         id: 4,
