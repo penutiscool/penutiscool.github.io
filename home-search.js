@@ -16,78 +16,24 @@ function getCategoryById(id) {
 
 // Games database - same as game.js
 const gamesRaw = [
-    {
-        id: 1,
-        name: "Snake Game",
-        imageUrl: "https://hubbleedu.github.io/images/Google-Snake.png",
-        gameUrl: "https://hubbleedu.github.io/games/snake/"
-    },
-    {
-        id: 2,
-        name: "Tetris",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Tetris",
-        gameUrl: "https://tetris.com/play-tetris"
-    },
-    {
-        id: 3,
-        name: "Szvy",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Pac-Man",
-        gameUrl: "https://zearn.global.ssl.fastly.net"
-    },
-    {
-        id: 4,
-        name: "Chess",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Chess",
-        gameUrl: "https://www.chess.com/play/online"
-    },
-    {
-        id: 5,
-        name: "2048",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=2048",
-        gameUrl: "https://play2048.co/"
-    },
-    {
-        id: 6,
-        name: "Asteroids",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Asteroids",
-        gameUrl: "https://www.google.com/logos/2019/asteroids/"
-    },
-    {
-        id: 7,
-        name: "Minecraft Classic",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Minecraft",
-        gameUrl: "https://classic.minecraft.net/"
-    },
-    {
-        id: 8,
-        name: "Solitaire",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Solitaire",
-        gameUrl: "https://www.solitaire.com/"
-    },
-    {
-        id: 9,
-        name: "Crossy Road",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Crossy+Road",
-        gameUrl: "https://www.crossyroad.com/"
-    },
-    {
-        id: 10,
-        name: "Tic Tac Toe",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Tic+Tac+Toe",
-        gameUrl: "https://www.playtictactoe.org/"
-    },
-    {
-        id: 11,
-        name: "Wordle",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Wordle",
-        gameUrl: "https://www.nytimes.com/games/wordle/index.html"
-    },
-    {
-        id: 12,
-        name: "Checkers",
-        imageUrl: "https://via.placeholder.com/300x200/CC00FF/FFFFFF?text=Checkers",
-        gameUrl: "https://www.mathsisfun.com/games/checkers-chess.html"
-    }
+    { name: "Forms", image: "https://www.uottawa.ca/about-us/sites/g/files/bhrskd336/files/styles/max_width_l_1470px/public/2022-08/ms_365_icons_4_auto_x2_auto_x2.jpg?itok=q6-8QPVx.png", url: "https://forms.office.com/r/GQRCFVA5YQ?origin=lprLink" },
+    {  id: 0, name: "Snake Game", image: "https://hubbleplay.github.io/images/Google-Snake.png", url: "https://hubbleplay.github.io/games/snake/" },
+    {  id: 1, name: "Doodle Jump", image: "https://hubbleplay.github.io/images/Doodle-Jump.png", url: "https://hubbleplay.github.io/games/Doodle_jump.html" },
+    {  id: 2, name: "Getting Over It", image: "https://hubbleplay.github.io/images/Getting-Over-It.png", url: "https://hubbleplay.github.io/games/gettingoverit.html", },
+    {  id: 3, name: "Retro Bowl", image: "https://hubbleplay.github.io/images/Retro-Bowl.png", url: "https://hubbleplay.github.io/games/retro-bowl/" },
+    {  id: 4, name: "Snow Rider 3D", image: "https://hubbleplay.github.io/images/Snow-Rider-3d.png", url: "https://hubbleplay.github.io/games/Snow Rider 3D.html",  },
+    {  id: 5, name: "Tetris", image: "https://hubbleplay.github.io/images/Tetris.png", url: "https://hubbleplay.github.io/games/Tetris.html" },
+    {  id: 2, name: "Space Huggers", image: "https://hubbleplay.github.io/images/Space-Huggers.png", url: "https://hubbleplay.github.io/games/spacehuggers.html" },
+    {  id: 7, name: "Basket Random", image: "https://hubbleplay.github.io/images/Basket-Random.png", url: "https://hubbleplay.github.io/games/basket-random/" },
+    {  id: 8, name: "Burrito Bison", image: "https://hubbleplay.github.io/images/burrito-Bison.png", url: "https://hubbleplay.github.io/games/burrito-bison/",  },
+    {  id: 9, name: "PolyTrack", image: "https://hubbleplay.github.io/images/Polytrack.png", url: "https://hubbleplay.github.io/games/polytrack/" },
+    {  id: 10, name: "Slope", image: "https://hubbleplay.github.io/images/Slope.png", url: "https://hubbleplay.github.io/games/slope.html",  },
+    {  id: 11, name: "Cookie Clicker", image: "https://hubbleplay.github.io/images/Cookie-Clicker.png", url: "https://hubbleplay.github.io/games/cookieclicker/" },
+    {  id: 3, name: "Bitlife", image: "https://hubbleplay.github.io/images/Bitlife.png", url: "https://hubbleplay.github.io/games/bitlife/",  },
+    {  id: 13, name: "Geometry Dash", image: "https://hubbleplay.github.io/images/Geometry-Dash.png", url: "https://hubbleplay.github.io/games/geometrydash/" },
+    {  id: 14, name: "Stickman Hook", image: "https://hubbleplay.github.io/images/Stickman-Hook.png", url: "https://hubbleplay.github.io/games/stickman-hook/" },
+    {  id: 15, name: "Idle Breakout", image: "https://hubbleplay.github.io/images/Idle-Breakout.png", url: "https://hubbleplay.github.io/games/idle-breakout/" },
+    {  id: 15, name: "EaglerCraft", image: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", url: "eaglercraft1_8_8.html" },
 ];
 
 // Auto-set category based on ID
@@ -122,7 +68,7 @@ function renderSearchResults(gamesToRender) {
                 <div class="image-loading-spinner">
                     <div class="loading-spinner" style="width: 40px; height: 40px; border-width: 3px;"></div>
                 </div>
-                <img src="${game.imageUrl}" alt="${game.name}" class="game-image">
+                <img src="${game.image}" alt="${game.name}" class="game-image">
                 <div class="game-overlay">
                     <button class="play-button" data-game-id="${game.id}">Play</button>
                 </div>
