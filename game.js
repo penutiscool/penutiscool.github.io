@@ -35,7 +35,7 @@ const gamesRaw = [
     {  id: 13, name: "Geometry Dash", image: "https://hubbleplay.github.io/images/Geometry-Dash.png", url: "https://hubbleplay.github.io/games/geometrydash/" },
     {  id: 14, name: "Stickman Hook", image: "https://hubbleplay.github.io/images/Stickman-Hook.png", url: "https://hubbleplay.github.io/games/stickman-hook/" },
     {  id: 15, name: "Idle Breakout", image: "https://hubbleplay.github.io/images/Idle-Breakout.png", url: "https://hubbleplay.github.io/games/idle-breakout/" },
-    {  id: 15, name: "EaglerCraft", image: "eaglercraft1_8_8.html", url: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg" },
+    {  id: 15, name: "EaglerCraft", image: "https://thumbs.dreamstime.com/b/minecraft-logo-online-game-dirt-block-illustrations-concept-design-isolated-186775550.jpg", url: "eaglercraft1_8_8.html" },
     
 ];
 
